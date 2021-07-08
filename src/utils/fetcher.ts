@@ -1,19 +1,19 @@
+import { BACKEND_BASE_URL } from '../constants';
+
 const GET = 'GET';
 const POST = 'POST';
 const PATCH = 'PATCH';
 const DELETE = 'DELETE';
 
-interface FetcherOptions {
-  url: string;
-  method: string;
-  body?: Record<string, unknown>;
-}
+type FetcherMethod = typeof GET | typeof POST | typeof PATCH | typeof DELETE;
 
-const niceFetch = async ({
-  url,
-  method,
-  body = {},
-}: FetcherOptions): Promise<unknown> => {
+type FetcherBody = Record<string, unknown>;
+
+const fetcher = async (
+  path: string,
+  method: FetcherMethod = GET,
+  body?: FetcherBody
+): Promise<unknown> => {
   const headers = {
     'content-type': 'application/json',
     accept: 'application/json, text/plain, */*',
@@ -24,6 +24,7 @@ const niceFetch = async ({
     method,
     ...(method !== GET ? { body: JSON.stringify(body) } : null),
   };
+  const url = `${BACKEND_BASE_URL}${path}`;
   const res = await fetch(url, options);
   const value = await res.json();
   if (!res.ok) {
@@ -31,15 +32,6 @@ const niceFetch = async ({
   } else {
     return value;
   }
-};
-
-const fetcher = {
-  get: (url: string) => niceFetch({ url, method: GET }),
-  post: (url: string, body: Record<string, unknown>) =>
-    niceFetch({ url, method: POST, body }),
-  patch: (url: string, body: Record<string, unknown>) =>
-    niceFetch({ url, method: PATCH, body }),
-  delete: (url: string) => niceFetch({ url, method: DELETE }),
 };
 
 export default fetcher;

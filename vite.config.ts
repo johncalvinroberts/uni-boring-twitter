@@ -8,8 +8,4 @@ export default defineConfig({
   define: {
     'process.env': {},
   },
-  esbuild: {
-    jsxFactory: 'jsx',
-    jsxInject: "import {jsx} from '@emotion/react';",
-  },
 });

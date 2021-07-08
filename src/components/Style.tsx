@@ -15,6 +15,7 @@ export const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
 export const theme = {
   colors: {
     blue: `#2CCCE1`,
+    accent: '#FFAFF7',
     background: `hsl(210, 50%, 96%)`,
     muted: `hsla(0, 1%, 10%, 1)`,
     error: `#ff4c4c`,
@@ -42,16 +43,9 @@ export const theme = {
 
 const Style = (): JSX.Element => {
   const styles = css`
-    @font-face {
-      font-family: 'input_mono_regular';
-      src: url('/InputMono-Regular.woff2') format('woff2');
-      font-weight: normal;
-      font-display: swap;
-      font-style: normal;
-      font-display: swap;
-    }
     html {
       font-size: 16px;
+      background-color: var(--blue);
     }
     * {
       margin: 0;
@@ -65,6 +59,7 @@ const Style = (): JSX.Element => {
     }
     ::selection {
       background: var(--muted);
+      color: var(--background);
     }
     body {
       background-color: var(--background);
