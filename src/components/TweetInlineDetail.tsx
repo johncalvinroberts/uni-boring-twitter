@@ -12,14 +12,16 @@ const TweetInlineDetail = (props: Props) => {
       css={css`
         opacity: 0.8;
         color: var(--text);
-        padding: var(--sm) 0;
+        padding: var(--sm);
         display: flex;
+        transition: box-shadow 0.1s ease;
         .arrow {
           opacity: 0;
           transition: opacity 0.1s;
         }
         &:hover {
           opacity: 1;
+          box-shadow: 4px 4px 0px var(--accent);
           .arrow {
             opacity: 1;
           }
@@ -47,12 +49,11 @@ const TweetInlineDetail = (props: Props) => {
         }
       `}
     >
-      <Link href={`t/${tweet.id}`} title="View Tweet">
+      <Link href={`/t/${tweet.id}`} title="View Tweet">
         <div className="title-box">
           <h3>{tweet.title}</h3>
-          <div className="arrow">→</div>
+          <span className="arrow">→</span>
         </div>
-
         <p>{tweet.body}</p>
       </Link>
     </div>

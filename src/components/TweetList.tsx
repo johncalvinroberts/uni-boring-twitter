@@ -7,7 +7,7 @@ import TweetInlineDetail from './TweetInlineDetail';
 import { PageLoadingPlaceholder } from './Loading';
 
 interface Props {
-  userId?: string;
+  userId?: number | string;
 }
 
 const TweetList = (props: Props = {}) => {
