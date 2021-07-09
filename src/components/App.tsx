@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { Fragment } from 'react';
 import { css, jsx } from '@emotion/react';
 import { Route } from 'wouter';
 import { SWRConfig } from 'swr';
@@ -11,13 +10,17 @@ import Footer from './Footer';
 import UserDetail from './UserDetail';
 import TweetDetail from './TweetDetail';
 import TweetList from './TweetList';
+import TitleContextOuter from './TitleContext';
 import { fetcher } from '../utils';
-// style imports
+import { useScrollReset } from '../hooks';
+
+// style import
 import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+const App = () => {
+  useScrollReset();
   return (
-    <Fragment>
+    <TitleContextOuter>
       <Style />
       <SWRConfig
         value={{
@@ -58,8 +61,8 @@ function App() {
         </div>
         <ToastContainer />
       </SWRConfig>
-    </Fragment>
+    </TitleContextOuter>
   );
-}
+};
 
 export default App;

@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { toast } from 'react-toastify';
 import { PageLoadingPlaceholder } from './Loading';
 import TweetList from './TweetList';
+import { useTitle } from '../hooks';
 
 interface Props {
   id: number | string;
@@ -13,6 +14,8 @@ interface Props {
 const UserDetail = (props: Props) => {
   const { id } = props;
   const { data, error } = useSWR<User>(`users/${id}`);
+
+  useTitle(data?.name);
 
   useEffect(() => {
     if (error) {
@@ -32,6 +35,10 @@ const UserDetail = (props: Props) => {
         }
         a {
           cursor: alias;
+        }
+        ul {
+          list-style: ethiopic-halehame;
+          padding-left: 2rem;
         }
       `}
     >

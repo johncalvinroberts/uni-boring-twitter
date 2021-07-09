@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { PageLoadingPlaceholder } from './Loading';
 import UserInlineDetail from './UserInlineDetail';
 import CommentList from './CommentList';
+import { useTitle } from '../hooks';
 
 interface Props {
   id: string;
@@ -14,6 +15,8 @@ interface Props {
 const TweetDetail = (props: Props) => {
   const { id } = props;
   const { data, error } = useSWR<Tweet>(`posts/${id}`);
+
+  useTitle(data?.title);
 
   useEffect(() => {
     if (error) {

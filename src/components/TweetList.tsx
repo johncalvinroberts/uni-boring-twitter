@@ -5,12 +5,14 @@ import useSWR, { mutate } from 'swr';
 import { toast } from 'react-toastify';
 import TweetInlineDetail from './TweetInlineDetail';
 import { PageLoadingPlaceholder } from './Loading';
+import { useTitle } from '../hooks';
 
 interface Props {
   userId?: number | string;
 }
 
 const TweetList = (props: Props = {}) => {
+  useTitle('Home');
   const { userId } = props;
   const { data = [], error } = useSWR<Tweet[]>(
     `posts${userId ? `?userId=${userId}` : ''}`

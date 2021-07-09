@@ -2,8 +2,10 @@
 import { css, jsx } from '@emotion/react';
 import { Link } from 'wouter';
 import Crane from '../assets/favicon.svg';
+import { useTitle } from '../hooks';
 
 const Header = () => {
+  const title = useTitle();
   return (
     <nav
       css={css`
@@ -12,6 +14,9 @@ const Header = () => {
         position: sticky;
         top: 0;
         z-index: 10;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         ul {
           list-style-type: none;
         }
@@ -25,6 +30,13 @@ const Header = () => {
             box-shadow: 4px 4px 0 var(--accent);
           }
         }
+        h3 {
+          padding-left: var(--sm);
+          width: 150px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
       `}
     >
       <ul>
@@ -37,6 +49,7 @@ const Header = () => {
         </li>
         {/* TODO: More nav items here */}
       </ul>
+      <h3>{title}</h3>
     </nav>
   );
 };
