@@ -49,6 +49,7 @@ const TweetDetail = (props: Props) => {
           flex: 0 0 100%;
         }
         .comments {
+          padding-top: var(--sm);
           flex: 0 0 100%;
         }
       `}

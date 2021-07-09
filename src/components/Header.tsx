@@ -17,7 +17,7 @@ const Header = () => {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        ul {
+        .logo {
           list-style-type: none;
         }
         img {
@@ -39,16 +39,12 @@ const Header = () => {
         }
       `}
     >
-      <ul>
-        <li>
-          <Link href="/">
-            <a title="Home">
-              <img src={Crane} alt="Cool crane logo" />
-            </a>
-          </Link>
-        </li>
-        {/* TODO: More nav items here */}
-      </ul>
+      <Link href="/" className="logo">
+        <a title="Home">
+          <img src={Crane} alt="Cool crane logo" />
+        </a>
+      </Link>
+      {/* TODO: More nav items here */}
       <h3>{title}</h3>
     </nav>
   );

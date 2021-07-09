@@ -45,7 +45,7 @@ const UserInlineDetail = (props: Props) => {
         &:hover {
           .arrow {
             opacity: 1;
-            padding-left: 10px;
+            padding-left: var(--xs);
           }
         }
       `}

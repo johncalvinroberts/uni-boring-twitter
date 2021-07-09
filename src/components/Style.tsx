@@ -33,7 +33,7 @@ export const theme = {
     body: 1.5,
   },
   space: {
-    xs: '0.5rem',
+    xs: '0.8rem',
     sm: '1rem',
     md: '1.4rem',
     lg: '2rem',

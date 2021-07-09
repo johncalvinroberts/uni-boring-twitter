@@ -1,8 +1,6 @@
-# uni-bo-twit
+# uni-boring-twitter
 
-> **Uni**verse **Bo**ring **Twit**ter Clone
-
-**Note**: [Prompt](https://github.com/onuniverse/sample-project-guidelines/blob/master/React.md)
+[Live Preview](https://uni-boring-twitter.johnny.sh)
 
 ### Pre-requisites
 
@@ -31,4 +29,9 @@ Then, production-ready artifacts are output to `dist`.
 
 ### Technologies Used
 
-TODO
+- [`wouter`](https://github.com/molefrog/wouter) - client side router
+- [`emotion`](https://emotion.sh/) - for CSS in JS
+- [`swr`](https://swr.vercel.app/) - for managing data fetching
+- [`vite`](https://vitejs.dev/) - super fast bundler
+
+Other than that, this is a pretty standard React + Typescript codebase.

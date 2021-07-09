@@ -13,12 +13,13 @@ const CommentInlineDetail = (props: Props) => {
       {...(className ? { className } : '')}
       css={css`
         padding: var(--sm);
+        font-size: var(--xs);
         .quote {
           font-size: var(--lg);
           line-height: 0;
         }
         small {
-          padding: 0 var(--xs);
+          padding: var(--xs) var(--sm);
           text-align: right;
           width: 100%;
           display: block;

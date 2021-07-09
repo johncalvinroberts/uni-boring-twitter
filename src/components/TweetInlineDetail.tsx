@@ -17,13 +17,15 @@ const TweetInlineDetail = (props: Props) => {
         transition: box-shadow 0.1s ease;
         .arrow {
           opacity: 0;
-          transition: opacity 0.1s;
+          transition: all 0.1s ease;
+          width: 0;
         }
         &:hover {
           opacity: 1;
           box-shadow: 4px 4px 0px var(--accent);
           .arrow {
             opacity: 1;
+            width: auto;
           }
         }
         a {
@@ -36,7 +38,6 @@ const TweetInlineDetail = (props: Props) => {
           overflow: hidden;
           text-overflow: ellipsis;
           width: 300px;
-          /* display: inline-flex; */
         }
         p {
           display: -webkit-box;

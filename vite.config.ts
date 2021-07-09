@@ -5,6 +5,9 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 export default defineConfig({
   plugins: [reactRefresh()],
   root: 'src',
+  build: {
+    outDir: '../dist',
+  },
   define: {
     'process.env': {},
   },
